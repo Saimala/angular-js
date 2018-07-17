@@ -1,0 +1,25 @@
+<div ng-controller="taskCtrl">
+    <div class="jumbotron">
+<h1 style="text-align: center;">{{headingName}}</h1>
+    <div class="row">
+        <div class="col-sm-8">
+            <input type="text" class="form-control" ng-model="xyz">
+        </div>
+    <div class="col-sm-4" ng-if="buttonToggle">
+        <button class="btn btn-primary btn-block" ng-click="abc()">add</button>
+    </div>
+    <div class="col-sm-4" ng-if="!buttonToggle">
+        <button class="btn btn-primary btn-block" ng-click="update()">update</button>
+    </div>
+    </div>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="x in arr track by $index">{{$index+1}}.{{x}}
+            <button style="float:right;"  ng-click="swap(0,$index)" ng-if="$index"><span class="glyphicon glyphicon-arrow-up"></span></button>
+            <button  style="float:right;" ng-click="swap(1,$index)" ng-if="$index != arr.length-1"><span class="glyphicon glyphicon-arrow-down"></span></button>
+            <button style="float:right;" ng-click="editabc($index)"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button style="float:right;" ng-click="deleteabc($index)"><span class="glyphicon glyphicon-remove"></span></button>        
+        </li>
+    </ul>
+    </div>
+    

@@ -1,0 +1,60 @@
+
+<div ng-controller="registrationCtrl">
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block" ng-click="toggle(0)">Sign In</button>
+                </div>
+                <div class="col-sm-6">
+                        <button type="button" class="btn btn-primary btn-block" ng-click="toggle(1)">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <div class="container" ng-if="formToggle">
+            <form name="registrationForm">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="Email" class="form-control" id="email" placeholder="enter the Email" name="Email" ng-model="signIn.Email" required>
+                    <span ng-show="registrationForm.Email.$touched && registrationForm.email.$invalid">
+                    <span ng-show="registrationForm.Email.$error.required">Email is required.</span>
+                    <span ng-show="registrationForm.Email.$error.Email">Invalid email.</span>
+                </span>
+            </div>
+         <div class="form-group">
+                   <label for="pwd">Password</label>
+                   <input type="password" class="form-control" id="pwd" placeholder="enter the password" name="pwd" ng-model="signIn.pwd" required>
+                   <span ng-show="registrationForm.pwd.$touched && registrationForm.pwd.$invalid">
+                    <span ng-show="registrationForm.pwd.$error.required">Password is required.</span>
+                </span>
+            </div>
+                    <button type="submit" class="btn btn-default" ng-click="submitsignIn()">SignIn</button>
+            </form>
+        </div>
+        <div class="container" ng-if="!formToggle">
+            <form name="registrationForm1">
+                <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="username" class="form-control" id="username" placeholder="enter the username" name="username" ng-model="signUp.myname" required>
+                        <span ng-show="registrationForm1.username.$touched && registrationForm1.username.$invalid">Username is required.</span>
+            </div>
+                <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="Email" class="form-control" id="Email" placeholder="enter the Email" name="Email" ng-model="signUp.Email" required>
+                        <span ng-show="registrationForm1.email.$touched && registrationForm1.email.$invalid">
+                        <span ng-show="registrationForm.email.$error.required">Email is required.</span>
+                        <span ng-show="registrationForm1.email.$error.email">Invalid Email.</span>
+                </span>
+            </div>
+                <div class="form-group">
+                        <label for="pwd">Password</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="enter the password" name="pwd" ng-model="signUp.pwd" required>
+                        <span ng-show="registrationForm1.pwd.$touched && registrationForm1.pwd.$invalid">
+                        <span ng-show="registrationForm1.pwd.$error.required">Password is required.</span>
+                </span>
+            </div>
+                        <button type="submit" class="btn btn-default" ng-click="submit()">SignUp</button>
+            </form>
+        </div> 
+    </div>
+</div>
